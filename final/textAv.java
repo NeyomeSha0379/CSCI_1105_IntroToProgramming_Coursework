@@ -11,6 +11,7 @@ public class textAv {
 			for(int i = 0; i < dung.length; i++) {
 				if(dung[i] == 'x') {
 					charLocation = i;
+					System.out.println("Char location = " + charLocation);
 				}
 			
 			if(charLocation == 0) {
@@ -18,16 +19,59 @@ public class textAv {
 				if(charAlive == true) {
 					dung[charLocation] = ',';
 					dung[charLocation + 1] = 'x';
-					System.out.println(dung[0]);
-				break;
+					continue;
 				
 				}
 			}
 			else if(charLocation == 1) {
 				charAlive = roomTwo();
-				break;
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+				}
 			}
-
+			else if(charLocation == 2){
+				charAlive = roomThree();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+			}
+			}
+			else if(charLocation == 3){
+				charAlive = roomFour();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+			}
+			}
+			else if(charLocation == 4){
+				charAlive = roomFive();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+			}
+			}
+			/*else if(charLocation == 5){
+				charAlive = roomSix();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+			}
+			}
+			else if(charLocation == 6){
+				charAlive = roomSeven();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+			}
+			}
+			*/
 			}
 		}
 		
@@ -38,18 +82,16 @@ public class textAv {
 		System.out.println("   ,-' ;  ! `-." + "\n  / :  !  :  . \\" + "\n |_ ;   __:  ;  |" + "\n )| .  :)(.  !  |" + 
 		"\n |\"    (##)  _  |" + "\n |  :  ;`'  (_) (" + "\n |  :  :  .     |" + "\n )_ !  ,  ;  ;  |" + "\n || .  .  :  :  |" +
 				"\n |\" .  |  :  .  |" + "\n |_____;----.___|");
-		for(int i = 0; i < 1; i++) {
+		
 		System.out.println("You are standing infront of a large door" + "\nWhat will you do?" + "\nEnter one word: ");
-		String choose = input.next().toUpperCase();
-		if(choose.equals("OPEN")) {
-			return true;
-			
+		String choose = input.next().toLowerCase();
+		System.out.println(choose);
+		while(!choose.equals("open")){
+			System.out.println("Are you afraid to open the door?");
+			System.out.println("You are standing infront of a large door" + "\nWhat will you do?" + "\nEnter one word: ");
+			choose = input.next().toLowerCase();
 		}
-		else {
-			System.out.println("Are you to afriad to open the door?");
-			i--;
-		}
-		}
+		
 		return true;
 
 		
@@ -75,12 +117,22 @@ public class textAv {
 				"|.'.','         /%%%%%%%%%%%%%\\         ','.'.|\r\n" + 
 				"|.','          /%%%%%%%%%%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
+	
+	System.out.println("You are in a dark hallway" + "\nIt looks like the hall turns left" + "\nWhat do you do?"
+	+ "\nEnter one word: ");
+	String choose2 = input.next().toLowerCase();
+	while(!choose2.equals("left")){
+		System.out.println("It is to late to turn back now");
 	System.out.println("You are in a dark hallway" +
 				"\nIt looks like the hall turns left" +
 			"\nWhat do you do?" + "\nEnter one word: ");
-		
+		choose2 = input.next().toLowerCase();
 	}
+		return true;
+	}
+	
 	public static boolean roomThree() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("|.'.'',                              ,''.'.'.'|\r\n" + 
 				"|.'.'.'',                          ,''.'.'.'.'|\r\n" + 
 				"|.'.'.'.'',                      ,''.'.'.'.'.'|\r\n" + 
@@ -99,8 +151,20 @@ public class textAv {
 				"|.'.','         /%%%|| ||%%%%%\\         ','.'.|\r\n" + 
 				"|.','          /%%%%|| ||%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%==' '==%%%%%%\\____________;|");
+				System.out.println("As you round the corner you notice" + "\nAn undead stading in the middle of the hall" + 
+				"\ndo you try and run past or fight" + "\nEnter one word: ");
+				String choose3 = input.next().toLowerCase();
+				while(!choose3.equals("fight")){
+					System.out.println("Stand and fight!");
+					System.out.println("An undead stading in the middle of the hall" + 
+				"\ndo you try and run past or fight" + "\nEnter one word: ");
+				choose3 = input.next().toLowerCase();
+				}
+				return true;
 	}
+	
 	public static boolean roomFour() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("|.'',                                     ,''.|\r\n" + 
 				"|.'.'',                                 ,''.'.|\r\n" + 
 				"|.'.'.'',                             ,''.'.'.|\r\n" + 
@@ -120,9 +184,22 @@ public class textAv {
 				"|.'.','         /%%%%%%%%%%%%%\\         ','.'.|\r\n" + 
 				"|.','          /%%%%%%%%%%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
+				System.out.println("At end of the hall you notice a sign" + "\nThe sign is prompting you" +
+				"\nWhat do you do?" + "\nEnter one word: ");
+				String choose4 = input.next().toLowerCase();
+				while(!choose4.equals("right")){
+					System.out.println("We must push on and figure out where the undead came from.");
+					System.out.println("The sign is prompting you" +
+				"\nWhat do you do?" + "\nEnter one word: ");
+					choose4 = input.next().toLowerCase();
+					
+					
+				}
+				return true;
 		
 	}
 	public static boolean roomFive() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("|.'',                                     ,''.|\r\n" + 
 				"|.'.'',                                 ,''.'.|\r\n" + 
 				"|.'.'.'',                             ,''.'.'.|\r\n" + 
@@ -142,9 +219,21 @@ public class textAv {
 				"|.'.','         /%%%%%%%%%%%%%\\         ','.'.|\r\n" + 
 				"|.','          /%%%%%%%%%%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
+				System.out.println("You see a door at the end of the hall" + "\nLight seems to be leaking in" + 
+				"\nFrom behind the door." + "\nWhat do you do?" + "\nEnter one word: ");
+				String choose5 = input.next().toLowerCase();
+				while(!choose5.equals("open")){
+					System.out.println("Do you wish to stay in these dark halls forever?");
+					System.out.println("Light seems to be leaking in" + 
+				"\nFrom behind the door." + "\nWhat do you do?" + "\nEnter one word: ");
+					choose5 = input.next().toLowerCase();
+				}
+				return true;
 		
 	}
+	
 	public static boolean roomSix() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("                _____\r\n" + 
 				"             .-,;='';_),-.\r\n" + 
 				"              \\_\\(),()/_/ /\\\r\n" + 
@@ -159,6 +248,7 @@ public class textAv {
 		
 	}
 	public static boolean roomSeven() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("                  _|_\r\n" + 
 				"                   |\r\n" + 
 				"                  / \\\r\n" + 
@@ -179,6 +269,7 @@ public class textAv {
 				"     ||  ||_/`  =======  `\\__||_._||  ||\r\n" + 
 				"   __||_/`      =======            `\\_||__");
 	}
+/*
 	public static boolean roomEight() {
 System.out.println("\r\n" + 
 		"                                  ______\r\n" + 
@@ -235,4 +326,5 @@ System.out.println("\r\n" +
 				" \\______  (____  /__|_|  /\\___  > \\_______  /\\_/  \\___  >__|   __\r\n" + 
 				"        \\/     \\/      \\/     \\/          \\/          \\/       \\/");
 	}
+	*/
 }
