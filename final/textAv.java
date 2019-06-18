@@ -55,7 +55,7 @@ public class textAv {
 				continue;
 			}
 			}
-			/*else if(charLocation == 5){
+			else if(charLocation == 5){
 				charAlive = roomSix();
 				if(charAlive == true){
 				dung[charLocation] = ',';
@@ -71,10 +71,36 @@ public class textAv {
 				continue;
 			}
 			}
-			*/
+			else if(charLocation == 7){
+				charAlive = roomEight();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
 			}
+			}
+			else if(charLocation == 8){
+				charAlive = roomNine();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation + 1] = 'x';
+				continue;
+			}
+			}
+			else if(charLocation == 9){
+				charAlive = roomTen();
+				if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[charLocation - 9] = 'x';
+				continue;
+			}
+			}
+			 
 		}
 		
+		
+	}
+	charAlive = gameOver();
 	}
 	
 	public static boolean roomOne(){
@@ -185,7 +211,7 @@ public class textAv {
 				"|.','          /%%%%%%%%%%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
 				System.out.println("At end of the hall you notice a sign" + "\nThe sign is prompting you" +
-				"\nWhat do you do?" + "\nEnter one word: ");
+				"\nWhat do you do?" + "\nEnter 'right' to follow the sign: ");
 				String choose4 = input.next().toLowerCase();
 				while(!choose4.equals("right")){
 					System.out.println("We must push on and figure out where the undead came from.");
@@ -220,7 +246,7 @@ public class textAv {
 				"|.','          /%%%%%%%%%%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
 				System.out.println("You see a door at the end of the hall" + "\nLight seems to be leaking in" + 
-				"\nFrom behind the door." + "\nWhat do you do?" + "\nEnter one word: ");
+				"\nFrom behind the door." + "\nWhat do you do?" + "\nEnter 'open' to continue: ");
 				String choose5 = input.next().toLowerCase();
 				while(!choose5.equals("open")){
 					System.out.println("Do you wish to stay in these dark halls forever?");
@@ -234,7 +260,7 @@ public class textAv {
 	
 	public static boolean roomSix() {
 		Scanner input = new Scanner(System.in);
-		System.out.println("                _____\r\n" + 
+		System.out.println("                 _____\r\n" + 
 				"             .-,;='';_),-.\r\n" + 
 				"              \\_\\(),()/_/ /\\\r\n" + 
 				"                ( ___ )   ||\r\n" + 
@@ -245,7 +271,14 @@ public class textAv {
 				"    \\|   \\ |/   /  |  \\        \\|    \\ |/\r\n" + 
 				"   \\\\|// \\\\|//  \"\"\" \"\"\"       \\\\|// \\\\\\|///\r\n" + 
 				"jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-		
+		System.out.println("A goblin is blocking your path." + "\nWhat do you do?" + "\nEnter one word: ");
+		String choose6 = input.next().toLowerCase();
+		while(!choose6.equals("fight")){
+		System.out.println("you must decide quickly before it attacks.");
+		System.out.println("A goblin is blocking your path." + "\nWhat do you do?" + "\nEnter 'fight' to attack: ");
+		choose6 = input.next().toLowerCase();
+		}
+		return true;
 	}
 	public static boolean roomSeven() {
 		Scanner input = new Scanner(System.in);
@@ -268,10 +301,19 @@ public class textAv {
 				"     ||  ||   |_|__|__|_|    ||   ||  ||\r\n" + 
 				"     ||  ||_/`  =======  `\\__||_._||  ||\r\n" + 
 				"   __||_/`      =======            `\\_||__");
+		System.out.println("A church is off in the distance" + "\nThat must be where the undead is coming from" + "\nWhat do you do?" + "Enter 'go' to go to the chruch:");
+		String choose7 = input.next().toLowerCase();
+		while(!choose7.equals("go")) {
+			System.out.println("The church must be the source of the problem");
+			System.out.println("A church is off in the distance" + "\nThat must be where the undead is coming from" + "\nWhat do you do?" + "Enter 'go' to go to the chruch:");
+			choose7 = input.next().toLowerCase();
+		}
+		return true;
 	}
-/*
+
 	public static boolean roomEight() {
-System.out.println("\r\n" + 
+		Scanner input = new Scanner(System.in);
+		System.out.println("\r\n" + 
 		"                                  ______\r\n" + 
 		"                               .-,;='';_),-.\r\n" + 
 		"                                \\_\\(),()/_/ /\\\r\n" + 
@@ -283,9 +325,18 @@ System.out.println("\r\n" +
 		"     |R.I.P|   //  /  /     |S|   /  |  \\        |R.I.P| \r\n" + 
 		"\\vV,,|_____|V,//_____/VvV,v,|_|/,,\"\"\" \"\"\" vVVvvVv|_____|vVvV\r\n" + 
 		"    ");
-		
+		System.out.println("As you get close to the gate of the chruch" + "\nA goblin appears from behind a tombstone."
+		+ "\nWhat do you do?" + "\nEnter 'fight' to attack the goblin: ");
+		String choose8 = input.next().toLowerCase();
+		while(!choose8.equals("fight")){
+			System.out.println("You must not take your eyes off of it.");
+			System.out.println("A goblin appears from behind a tombstone."+ "\nWhat do you do?" + "\nEnter 'fight' to attack the goblin: ");
+			choose8 = input.next().toLowerCase();
+		}
+		return true;
 	} 
 	public static boolean roomNine() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("        {} {}\r\n" + 
 				"                         !  !  ! II II !  !  !\r\n" + 
 				"                      !  I__I__I_II II_I__I__I  !\r\n" + 
@@ -307,7 +358,16 @@ System.out.println("\r\n" +
 				"-|--|--|= ||-|--|--|--|--|--|--|-|| ||-|--|--|--|--|--|--|-||- |--|--|-\r\n" + 
 				"-|--|--|| |  |  |  |  |  |  | || || |  |  |  |  |  |  | ||= |  |  | \r\n" + 
 				"~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~~");
-		
+		System.out.println("You approach the gate of the chruch" + "\nthe place that is surely the source of all this evil" +
+				"\nWhat will you do?" + "\nEnter 'open' to open the game: ");
+		String choose9 = input.next().toLowerCase();
+		while(!choose9.equals("open")) {
+			System.out.println("This place that is surely the source of all this evil" +
+					"\nWhat will you do?" + "\nEnter 'open' to open the game: ");
+			choose9 = input.next().toLowerCase();
+			
+		}
+		return true;
 	}
 	public static boolean roomTen() {
 		System.out.println("___________      __________       _________                __  .__                         .___ \r\n" + 
@@ -316,7 +376,13 @@ System.out.println("\r\n" +
 				"  |    |(  <_> )  |    |   \\  ___/\\     \\___(  <_> )   |  \\  | |  |   |  \\  |  /\\  ___// /_/ |  \r\n" + 
 				"  |____| \\____/   |______  /\\___  >\\______  /\\____/|___|  /__| |__|___|  /____/  \\___  >____ |  \r\n" + 
 				"                         \\/     \\/        \\/            \\/             \\/            \\/     \\/  ");
-		
+		Scanner input = new Scanner(System.in);
+			System.out.println("Enter 'reset' to start again. or type anything else to close the program.");
+			String choose10 = input.next().toLowerCase();
+			while(!choose10.equals("reset")) {
+				System.exit(0);
+			}
+			return true;
 	}
 	public static boolean gameOver() {
 		System.out.println("  ________                        ________                    ._.\r\n" + 
@@ -326,5 +392,5 @@ System.out.println("\r\n" +
 				" \\______  (____  /__|_|  /\\___  > \\_______  /\\_/  \\___  >__|   __\r\n" + 
 				"        \\/     \\/      \\/     \\/          \\/          \\/       \\/");
 	}
-	*/
+	
 }
