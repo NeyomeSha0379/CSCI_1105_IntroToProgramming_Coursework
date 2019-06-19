@@ -2,104 +2,106 @@ import java.util.Scanner;
 public class textAv {
 
 	public static void main(String[] args) {
-		int health = 100;
 		boolean charAlive = true;
 		char[] dung = {'x' , ',' , ',' , ',' , ',' , ',' , ',' , ',' , ',' , ','};
 		int charLocation = 0;
 		Scanner input = new Scanner(System.in);
 		while(charAlive == true) {
-			for(int i = 0; i < dung.length; i++) {
+			for(int i = 0; i < dung.length && charAlive == true; i++) {
 				if(dung[i] == 'x') {
 					charLocation = i;
 					System.out.println("Char location = " + charLocation);
 				}
 			
-			if(charLocation == 0) {
-				charAlive = roomOne();
-				if(charAlive == true) {
-					dung[charLocation] = ',';
-					dung[charLocation + 1] = 'x';
-					continue;
+				if(charLocation == 0) {
+					charAlive = roomOne();
+					if(charAlive == true) {
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					
+					}
+				}
+				else if(charLocation == 1) {
+					charAlive = roomTwo();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 2){
+					charAlive = roomThree();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 3){
+					charAlive = roomFour();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 4){
+					charAlive = roomFive();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 5){
+					charAlive = roomSix();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 6){
+					charAlive = roomSeven();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 7){
+					charAlive = roomEight();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 8){
+					charAlive = roomNine();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[charLocation + 1] = 'x';
+						continue;
+					}
+				}
+				else if(charLocation == 9){
+					charAlive = roomTen();
+					if(charAlive == true){
+						dung[charLocation] = ',';
+						dung[0] = 'x';
+						i = -1;
+					}
+				} 
+			}
+			charAlive = gameOver();
+			if(charAlive == true){
+				dung[charLocation] = ',';
+				dung[0] = 'x';
 				
-				}
 			}
-			else if(charLocation == 1) {
-				charAlive = roomTwo();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-				}
-			}
-			else if(charLocation == 2){
-				charAlive = roomThree();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 3){
-				charAlive = roomFour();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 4){
-				charAlive = roomFive();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 5){
-				charAlive = roomSix();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 6){
-				charAlive = roomSeven();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 7){
-				charAlive = roomEight();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 8){
-				charAlive = roomNine();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation + 1] = 'x';
-				continue;
-			}
-			}
-			else if(charLocation == 9){
-				charAlive = roomTen();
-				if(charAlive == true){
-				dung[charLocation] = ',';
-				dung[charLocation - 9] = 'x';
-				continue;
-			}
-			}
-			 
 		}
-		
-		
-	}
 	}
 	
 	public static boolean roomOne(){
@@ -108,7 +110,7 @@ public class textAv {
 		"\n |\"    (##)  _  |" + "\n |  :  ;`'  (_) (" + "\n |  :  :  .     |" + "\n )_ !  ,  ;  ;  |" + "\n || .  .  :  :  |" +
 				"\n |\" .  |  :  .  |" + "\n |_____;----.___|");
 		
-		System.out.println("You are standing infront of a large door" + "\nWhat will you do?" + "\nEnter one word: ");
+		System.out.println("You are standing infront of a large door" + "\nWhat will you do?" + "\nEnter 'open' to begin game. ");
 		String choose = input.next().toLowerCase();
 		System.out.println(choose);
 		while(!choose.equals("open")){
@@ -144,7 +146,7 @@ public class textAv {
 				"|;____________/%%%%%%%%%%%%%%%%%\\____________;|");
 	
 	System.out.println("You are in a dark hallway" + "\nIt looks like the hall turns left" + "\nWhat do you do?"
-	+ "\nEnter one word: ");
+	+ "\nEnter left to follow the hall. ");
 	String choose2 = input.next().toLowerCase();
 	while(!choose2.equals("left")){
 		System.out.println("It is to late to turn back now");
@@ -177,7 +179,7 @@ public class textAv {
 				"|.','          /%%%%|| ||%%%%%%\\          ','.|\r\n" + 
 				"|;____________/%%%%==' '==%%%%%%\\____________;|");
 				System.out.println("As you round the corner you notice" + "\nAn undead stading in the middle of the hall" + 
-				"\ndo you try and run past or fight" + "\nEnter one word: ");
+				"\ndo you try and run past or fight" + "\nEnter 'fight' to begin battle. ");
 				String choose3 = input.next().toLowerCase();
 				while(!choose3.equals("fight")){
 					System.out.println("Stand and fight!");
@@ -270,7 +272,7 @@ public class textAv {
 				"    \\|   \\ |/   /  |  \\        \\|    \\ |/\r\n" + 
 				"   \\\\|// \\\\|//  \"\"\" \"\"\"       \\\\|// \\\\\\|///\r\n" + 
 				"jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-		System.out.println("A goblin is blocking your path." + "\nWhat do you do?" + "\nEnter one word: ");
+		System.out.println("A goblin is blocking your path." + "\nWhat do you do?" + "\nEnter 'fight' to begin battle. ");
 		String choose6 = input.next().toLowerCase();
 		while(!choose6.equals("fight")){
 		System.out.println("you must decide quickly before it attacks.");
@@ -378,7 +380,7 @@ public class textAv {
 		Scanner input = new Scanner(System.in);
 			System.out.println("Enter 'reset' to start again. or type anything else to close the program.");
 			String choose10 = input.next().toLowerCase();
-			while(!choose10.equals("reset")) {
+			if(!choose10.equals("reset")) {
 				System.exit(0);
 			}
 			return true;
@@ -437,6 +439,13 @@ public class textAv {
 				"\\    \\_\\  \\/ __ \\|  Y Y  \\  ___/  /    |    \\   /\\  ___/|  | \\/\\|\r\n" + 
 				" \\______  (____  /__|_|  /\\___  > \\_______  /\\_/  \\___  >__|   __\r\n" + 
 				"        \\/     \\/      \\/     \\/          \\/          \\/       \\/");
+					Scanner input = new Scanner(System.in);
+						System.out.println("Enter 'reset' to start again. or type anything else to close the program.");
+						String choose10 = input.next().toLowerCase();
+						while(!choose10.equals("reset")) {
+							System.exit(0);
+						}
+						return true;				
 	}
 	
 }
