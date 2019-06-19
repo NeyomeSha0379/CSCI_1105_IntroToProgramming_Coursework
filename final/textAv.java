@@ -7,7 +7,7 @@ public class textAv {
 		char[] dung = {'x' , ',' , ',' , ',' , ',' , ',' , ',' , ',' , ',' , ','};
 		int charLocation = 0;
 		Scanner input = new Scanner(System.in);
-		while(charAlive) {
+		while(charAlive == true) {
 			for(int i = 0; i < dung.length; i++) {
 				if(dung[i] == 'x') {
 					charLocation = i;
@@ -100,7 +100,6 @@ public class textAv {
 		
 		
 	}
-	charAlive = gameOver();
 	}
 	
 	public static boolean roomOne(){
@@ -186,7 +185,7 @@ public class textAv {
 				"\ndo you try and run past or fight" + "\nEnter one word: ");
 				choose3 = input.next().toLowerCase();
 				}
-				return true;
+				return fight();
 	}
 	
 	public static boolean roomFour() {
@@ -278,7 +277,7 @@ public class textAv {
 		System.out.println("A goblin is blocking your path." + "\nWhat do you do?" + "\nEnter 'fight' to attack: ");
 		choose6 = input.next().toLowerCase();
 		}
-		return true;
+		return fight();
 	}
 	public static boolean roomSeven() {
 		Scanner input = new Scanner(System.in);
@@ -333,7 +332,7 @@ public class textAv {
 			System.out.println("A goblin appears from behind a tombstone."+ "\nWhat do you do?" + "\nEnter 'fight' to attack the goblin: ");
 			choose8 = input.next().toLowerCase();
 		}
-		return true;
+		return fight();
 	} 
 	public static boolean roomNine() {
 		Scanner input = new Scanner(System.in);
@@ -384,6 +383,53 @@ public class textAv {
 			}
 			return true;
 	}
+	public static boolean fight() {
+		Scanner input = new Scanner(System.in);
+		int monsterHP = 100;
+		int playerHP = 100;
+		int winner = -1;
+		while (winner < 0) {
+			int monDamage = (int)(Math.random() * 100);
+			int damage = (int)(Math.random() * 75);
+			System.out.println("Enter 'attack' to roll damage: ");
+			String trigger = input.next().toLowerCase();
+			if(trigger.equals("attack")){
+				playerHP = playerHP - damage;
+				monsterHP = monsterHP - monDamage;
+				System.out.println("You do " + monDamage + " damage to the monster" + "\nits remaining hp is " + monsterHP);
+				System.out.println("The monster has delt " + damage + " to you" + "\nyour remaining hp is " + playerHP);
+				if(monsterHP <= 0){
+					winner += 1;
+					if(playerHP <= 0){
+						winner += 2;
+					}
+				}
+				else if (playerHP <= 0){
+					winner += 2;
+				}
+			
+		}
+				
+		}
+		if(winner == 0){
+			System.out.println("player wins");
+			return true;
+		}
+		else if(winner == 1){
+			System.out.println("monster wins");
+			return false;
+		}
+		else {
+			System.out.println("DRAW");
+			return false;
+			
+		}
+
+		 
+		
+	}
+	
+	
 	public static boolean gameOver() {
 		System.out.println("  ________                        ________                    ._.\r\n" + 
 				" /  _____/_____    _____   ____   \\_____  \\___  __ ___________| |\r\n" + 
